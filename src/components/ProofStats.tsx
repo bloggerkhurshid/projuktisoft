@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Users, Code, Calendar, Sparkles, BookOpen } from "lucide-react";
+import { Award, Users, Code, Calendar, Sparkles, BookOpen, ExternalLink } from "lucide-react";
 
 export default function ProofStats() {
   const stats = [
@@ -114,7 +114,15 @@ export default function ProofStats() {
                     <div className="w-3 h-3 rounded-full bg-yellow-400" />
                     <div className="w-3 h-3 rounded-full bg-emerald-400" />
                   </div>
-                  <span className="text-xs font-mono text-slate-400">dailyaxom.in</span>
+                  <a
+                    href="https://www.dailyaxom.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-mono text-slate-500 hover:text-[#37B37F] transition-colors underline decoration-dotted underline-offset-2 flex items-center gap-1"
+                  >
+                    <span>www.dailyaxom.in</span>
+                    <ExternalLink className="w-3 h-3 text-[#37B37F]" />
+                  </a>
                 </div>
 
                 <div className="space-y-3 font-mono text-xs text-slate-700">

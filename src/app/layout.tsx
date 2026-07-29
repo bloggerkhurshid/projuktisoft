@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -147,6 +148,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-[#fafafa] text-slate-900 selection:bg-[#37B37F] selection:text-white">
         {children}
+        <CookieConsentBanner />
       </body>
     </html>
   );

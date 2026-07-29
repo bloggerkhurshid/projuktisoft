@@ -41,20 +41,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
-          {/* Eyebrow badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-[#1f6d4d] text-xs font-bold uppercase tracking-widest mb-8 shadow-xs"
-          >
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#37B37F] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#37B37F]"></span>
-            </span>
-            <Sparkles className="w-3.5 h-3.5 text-[#37B37F]" />
-            <span>SOFTWARE DEVELOPMENT STUDIO</span>
-          </motion.div>
+
 
           {/* Headline */}
           <motion.h1
@@ -63,9 +50,9 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-8"
           >
-            <span className="block text-slate-900">Build smarter. Ship faster.</span>
+            <span className="block text-slate-900">Empowering Businesses with High-Performance</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#37B37F] via-emerald-600 to-teal-700">
-              Digital products, built to last.
+              Websites, Android Apps & SEO Services.
             </span>
           </motion.h1>
 
@@ -76,9 +63,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg sm:text-xl text-slate-600 font-normal leading-relaxed max-w-3xl mx-auto mb-10"
           >
-            Full-stack MERN development studio crafting high-performance web applications, 
-            bilingual EdTech platforms like <strong className="text-slate-900 font-semibold underline decoration-[#37B37F] underline-offset-4">DailyAxom</strong>, 
-            and custom freelance builds for ambitious founders and businesses.
+            We build modern websites, native Android apps, and growth-oriented SEO strategies that elevate your brand and streamline your operations.
           </motion.p>
 
           {/* Call to Actions */}

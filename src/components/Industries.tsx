@@ -1,41 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, ShoppingBag, Rocket, Smartphone, ArrowUpRight } from "lucide-react";
+import { Globe, Smartphone, Search, Briefcase, ArrowUpRight } from "lucide-react";
 
 export default function Industries() {
   const industries = [
     {
-      title: "Education & EdTech",
-      icon: BookOpen,
-      badge: "Bilingual Systems",
+      title: "Website Development",
+      icon: Globe,
+      badge: "Web Apps & Portals",
       description:
-        "Custom exam prep tools, mock test platforms, Assamese/English learning systems, and automated student progress tracking.",
-      highlights: ["Timer Mock Tests", "Leaderboards & Ranks", "PDF Note Downloads"],
+        "Modern responsive websites, custom React/Next.js web applications, client portals, and fast landing pages built for businesses.",
+      highlights: ["React & Next.js Stack", "Fast Loading & Mobile First", "Admin Control Dashboards"],
     },
     {
-      title: "Retail & Local Business",
-      icon: ShoppingBag,
-      badge: "Billing & POS",
-      description:
-        "Fast GST invoice generation, sales inventory dashboards, and custom management tools for shops and local enterprises.",
-      highlights: ["GST Invoice Generator", "Stock Tracker", "Daily Revenue Reports"],
-    },
-    {
-      title: "Startups & Founders",
-      icon: Rocket,
-      badge: "Rapid MVPs",
-      description:
-        "Transform raw ideas into production-grade web applications in weeks. Scalable MERN stack foundation built for growth.",
-      highlights: ["Clean Codebase", "Auth & Payments", "Cloud Ready"],
-    },
-    {
-      title: "Android & Mobile",
+      title: "Android Development",
       icon: Smartphone,
-      badge: "Play Store Apps",
+      badge: "Google Play Store",
       description:
-        "Responsive cross-platform mobile experiences published directly to the Google Play Store with offline capabilities.",
-      highlights: ["Play Store Deployment", "Push Notifications", "Fast Mobile UX"],
+        "Custom Android applications published directly to the Play Store with push notifications, offline support, and smooth mobile UX.",
+      highlights: ["Play Store Publishing", "Push Notifications", "Fast Mobile UX"],
+    },
+    {
+      title: "SEO Service",
+      icon: Search,
+      badge: "Google Ranking",
+      description:
+        "Technical SEO, speed optimization, local SEO, and keyword strategies to boost organic search engine visibility and website traffic.",
+      highlights: ["Technical SEO Audit", "Schema Structured Data", "Page Speed Optimization"],
+    },
+    {
+      title: "Business Tools & Services",
+      icon: Briefcase,
+      badge: "POS, Billing & EdTech",
+      description:
+        "Custom billing software, GST invoicing, inventory tools, and bilingual EdTech/learning platforms tailored to operational needs.",
+      highlights: ["GST Billing & POS", "EdTech Exam Engines", "Inventory Management"],
     },
   ];
 

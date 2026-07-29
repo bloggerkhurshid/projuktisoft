@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, MapPin, Send, CheckCircle2, Clock, MessageSquare, Sparkles, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle2, Clock, MessageSquare, Sparkles, ArrowRight, Globe, Smartphone, Search, Store, Phone, Code2 } from "lucide-react";
 
 export default function ContactSection() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -12,15 +12,15 @@ export default function ContactSection() {
     name: "",
     email: "",
     phone: "",
-    projectType: "Full-stack Web App",
+    projectType: "Website Development",
     message: "",
   });
 
   const projectTypes = [
-    "Full-stack Web App",
-    "EdTech / DailyAxom Style",
-    "Business / POS System",
-    "Android App",
+    { label: "Website Development", icon: Globe },
+    { label: "Android Development", icon: Smartphone },
+    { label: "SEO Services", icon: Search },
+    { label: "Business Tools & Services", icon: Store },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -94,11 +94,28 @@ export default function ContactSection() {
             <div>
               <h3 className="text-2xl font-bold text-slate-900 mb-2">Direct Outreach</h3>
               <p className="text-slate-600 text-sm mb-8 leading-relaxed">
-                Prefer email or WhatsApp over form briefs? Feel free to reach out directly anytime.
+                Prefer direct communication over brief forms? Reach out to our lead developer directly anytime via call, WhatsApp, or email.
               </p>
 
               {/* Info List */}
-              <div className="space-y-6 mb-10">
+              <div className="space-y-6 mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#37B37F]/10 border border-[#37B37F]/20 flex items-center justify-center shrink-0">
+                    <Phone className="w-4 h-4 text-[#37B37F]" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-slate-400 font-medium">Direct Call / WhatsApp</div>
+                    <a
+                      href="https://wa.me/917002820458"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-slate-800 hover:text-[#37B37F] transition-colors"
+                    >
+                      +91 70028 20458
+                    </a>
+                  </div>
+                </div>
+
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-xl bg-[#37B37F]/10 border border-[#37B37F]/20 flex items-center justify-center shrink-0">
                     <Mail className="w-4 h-4 text-[#37B37F]" />
@@ -121,6 +138,16 @@ export default function ContactSection() {
                   <div>
                     <div className="text-xs text-slate-400 font-medium">Studio Location</div>
                     <div className="text-sm font-semibold text-slate-800">Kokrajhar, Assam, India</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#37B37F]/10 border border-[#37B37F]/20 flex items-center justify-center shrink-0">
+                    <Code2 className="w-4 h-4 text-[#37B37F]" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-slate-400 font-medium">Lead Developer & Founder</div>
+                    <div className="text-sm font-semibold text-slate-800">Khurshid Alom</div>
                   </div>
                 </div>
 
@@ -232,23 +259,28 @@ export default function ContactSection() {
                   {/* Project Type Selector Pills */}
                   <div>
                     <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2.5">
-                      What are you looking to build?
+                      Select Service / Project Type
                     </label>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                      {projectTypes.map((type) => (
-                        <button
-                          key={type}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, projectType: type })}
-                          className={`py-2.5 px-3 rounded-xl text-xs font-semibold text-center transition-all ${
-                            formData.projectType === type
-                              ? "bg-[#37B37F] text-white shadow-sm shadow-[#37B37F]/30"
-                              : "bg-slate-50/80 border border-slate-200 text-slate-700 hover:border-slate-300"
-                          }`}
-                        >
-                          {type}
-                        </button>
-                      ))}
+                      {projectTypes.map((item) => {
+                        const Icon = item.icon;
+                        const isSelected = formData.projectType === item.label;
+                        return (
+                          <button
+                            key={item.label}
+                            type="button"
+                            onClick={() => setFormData({ ...formData, projectType: item.label })}
+                            className={`py-2.5 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-all ${
+                              isSelected
+                                ? "bg-[#37B37F] text-white shadow-sm shadow-[#37B37F]/30"
+                                : "bg-slate-50/80 border border-slate-200 text-slate-700 hover:border-slate-300"
+                            }`}
+                          >
+                            <Icon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? "text-white" : "text-[#37B37F]"}`} />
+                            <span className="truncate">{item.label}</span>
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
 

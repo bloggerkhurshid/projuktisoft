@@ -154,10 +154,11 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
                 <div>
                   <label className="block text-xs font-semibold text-slate-600 mb-1">
-                    Phone / WhatsApp Number
+                    Phone / WhatsApp Number *
                   </label>
                   <input
                     type="tel"
+                    required
                     value={bookingForm.phone}
                     onChange={(e) => setBookingForm({ ...bookingForm, phone: e.target.value })}
                     placeholder="+91 98765 43210"
