@@ -2,19 +2,22 @@
   RewriteEngine On
   RewriteBase /
 
-  # Allow directory listing prevention without causing 403 on existing directories if index exists
+  # Prevent 403 Forbidden when directory listings are requested by setting index file
   DirectoryIndex index.html
 
-  # Handle Next.js Static Export Clean URLs
-  # 1. If path is a directory and index.html exists within it, serve index.html
+  # Disable MultiViews to avoid conflicts with file extension matching
+  Options -MultiViews
+
+  # 1. If requesting a directory like /careers/ or /careers, serve /careers.html or /careers/index.html
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_FILENAME}/index.html -f
   RewriteRule ^(.*)$ $1/index.html [L]
 
-  # 2. If requested path with .html extension exists as a file, rewrite to path.html
+  # 2. If requesting a route without .html (e.g. /careers), rewrite to /careers.html if it exists
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.*)$ $1.html [L,QSA]
 </IfModule>
+
 
