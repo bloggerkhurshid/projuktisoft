@@ -1,0 +1,4 @@
+# Netlify redirects file for Next.js static export
+
+# Rule for handling clean URLs & client fallback on Netlify
+/*    /index.html   200

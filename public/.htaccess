@@ -2,22 +2,35 @@
   RewriteEngine On
   RewriteBase /
 
-  # Prevent 403 Forbidden when directory listings are requested by setting index file
+  # Serve index.html as default
   DirectoryIndex index.html
 
-  # Disable MultiViews to avoid conflicts with file extension matching
-  Options -MultiViews
+  # Disable Directory Indexes & MultiViews
+  Options -Indexes -MultiViews
 
-  # 1. If requesting a directory like /careers/ or /careers, serve /careers.html or /careers/index.html
+  # 1. Direct files (CSS, JS, images, SVG, txt, xml)
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # 2. Direct directory requests with trailing slash (e.g. /careers/)
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.*)/$ $1/index.html [L]
+
+  # 3. Clean URLs without trailing slash (e.g. /careers -> /careers/index.html or /careers.html)
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^(.*)$ $1/index.html [L]
 
-  # 2. If requesting a route without .html (e.g. /careers), rewrite to /careers.html if it exists
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+  # 4. Fallback 404 for unknown URLs
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.*)$ $1.html [L,QSA]
+  RewriteRule ^ 404.html [L]
 </IfModule>
+
+
+
 
 
