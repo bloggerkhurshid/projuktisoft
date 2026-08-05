@@ -93,6 +93,12 @@ export default function Footer() {
                   contact@projuktisoft.com
                 </a>
               </li>
+              <li className="flex items-center gap-2 text-slate-600">
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-[#247c57] border border-emerald-200/60 shrink-0">
+                  UDYAM
+                </span>
+                <span className="font-mono text-xs text-slate-600 font-medium">UDYAM-AS-19-0025928</span>
+              </li>
             </ul>
           </div>
         </div>
